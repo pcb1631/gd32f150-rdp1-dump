@@ -9,6 +9,11 @@ This requires physical SWD/debug access to the target.
  
 The dumper can read from flash in the range `0x08000000..0x0800FFFF`. It does not call the FMC, does not unlock flash, and does not touch option bytes. The host writes DAP control registers and SRAM through the debugger, and clears `CDBGPWRUPREQ` while each chunk is copied.
  
+https://github.com/user-attachments/assets/70245a5a-96dc-4752-aa36-cb83f2535a62
+
+
+
+
 ## Requirements
 - Debugger (I used RP2040)
 - GD32F150R8T6 (device id = 0x13030410)
