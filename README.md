@@ -1,11 +1,9 @@
 # GD32F150R8T6 RDP1 Bypass PoC
  
-This proof of concept demonstrates an SRAM-assisted readout of RDP1-protected flash on a VEIKK S640 tablet with a GD32F150R8T6. It was inspired by the published GigaVulnerability #2 research.
+This proof of concept demonstrates an SRAM-assisted readout of RDP1-protected flash on a GD32F150R8T6. It was inspired by the published GigaVulnerability #2 research.
  
 - Kovrizhnykh, A. — [GigaVulnerability: readout protection bypass on GigaDevice GD32 MCUs](https://ptswarm.com/blog/gigavulnerability-readout-protection-bypass-on-gigadevice-gd32-mcus/)
 - Obermaier, J. et al. — [One Exploit to Rule them All? On the Security of Drop-in Replacement and Counterfeit Microcontrollers (USENIX WOOT '20)](https://files.usenix.org/s3fs-public/cdn/woot20-paper-obermaier.pdf)
-
-This requires physical SWD/debug access to the target. 
  
 The dumper can read from flash in the range `0x08000000..0x0800FFFF`. It does not call the FMC, does not unlock flash, and does not touch option bytes. The host writes DAP control registers and SRAM through the debugger, and clears `CDBGPWRUPREQ` while each chunk is copied.
  
