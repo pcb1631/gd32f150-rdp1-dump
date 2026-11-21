@@ -66,6 +66,7 @@ Our communication method is simply another region of SRAM:
 3. Dumper copies flash to SRAM mailbox region
 4. Debugger asserts `CDBGPWRUPREQ` again, reads SRAM command block. If `DONE`=1 and `FAULT`=0, host dumps mailbox region to disk
 5. Step 2 but host tells dumper to copy next source address
+
 The dumper's command block is at `0x20000100`:
  
 | Offset | Word |
