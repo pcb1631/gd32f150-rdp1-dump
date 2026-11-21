@@ -76,7 +76,7 @@ The dumper's command block is at `0x20000100`:
 | `+0x0C` | `DONE` |
 | `+0x10` | `FAULT` (`0xDEADBEEF` if the fault handler ran, e.g. on an illegal flash access) |
  
-The 4 KiB destination is `0x20001000..0x20001FFF`. The vector table is at `0x20000000`; the entry is `0x20000041`.
+The 4 KiB destination is `0x20001000..0x20001FFF` (the "mailbox" region). The vector table is at `0x20000000`, the entry is `0x20000041`.
  
 For each chunk the host writes the address and length, sets `CMD = 1`, waits 50 ms, clears `CDBGPWRUPREQ` (`DP CTRL/STAT = 0x40000000`), waits 8 s, then reasserts both power requests (`0x50000000`). It accepts the chunk only when `DONE = 1` and `FAULT = 0`.
  
