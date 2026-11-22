@@ -43,6 +43,10 @@ def run(sock: socket.socket, command: str, quiet: bool = False) -> tuple[int, st
     status, body = rpc(sock, command)
     if not quiet:
         print(f"> {command}\n{body}\n", flush=True)
+
+    if status:
+        raise RuntimeError(f"status: {status}, {body}")
+        
     return status, body
 
 
